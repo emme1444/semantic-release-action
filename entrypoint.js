@@ -112,7 +112,7 @@ async function run() {
   }
 
   // set outputs
-  const { version, notes } = nextRelease;
+  const { version, notes, type } = nextRelease;
   const [major, minor, patch] = version.split('.');
   const { lastVersion } = lastRelease;
   core.exportVariable('NEW_RELEASE_PUBLISHED', 'true');
@@ -121,6 +121,7 @@ async function run() {
   core.exportVariable('RELEASE_MINOR', minor);
   core.exportVariable('RELEASE_PATCH', patch);
   core.exportVariable('RELEASE_NOTES', notes);
+  core.exportVariable('RELEASE_TYPE', type);
   core.exportVariable('LAST_RELEASE_VERSION', lastVersion); // or previous, or prev
   core.setOutput('new-release-published', 'true');
   core.setOutput('release-version', version);
@@ -128,6 +129,7 @@ async function run() {
   core.setOutput('release-minor', minor);
   core.setOutput('release-patch', patch);
   core.setOutput('release-notes', notes);
+  core.setOutput('release-type', type);
   core.setOutput('last-release-version', lastVersion); // or previous, or prev
 }
 
