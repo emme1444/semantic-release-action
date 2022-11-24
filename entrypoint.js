@@ -114,7 +114,7 @@ async function run() {
   // set outputs
   const { version, notes, type } = nextRelease;
   const [major, minor, patch] = version.split('.');
-  const { lastVersion } = lastRelease;
+  const { version: lastVersion } = lastRelease;
   core.exportVariable('NEW_RELEASE_PUBLISHED', 'true');
   core.exportVariable('RELEASE_VERSION', version);
   core.exportVariable('RELEASE_MAJOR', major);
